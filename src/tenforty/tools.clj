@@ -1,4 +1,5 @@
 (ns tenforty.tools
+  (use tenforty.core)
   (:gen-class))
 
 (defn -main
