@@ -5,8 +5,8 @@
   (:gen-class))
 
 (defn dump-graphviz
-  []
-  (let [lines (apply concat (map #(vals %) (vals tenforty.forms.ty2015/forms)))]
+  [forms]
+  (let [lines (apply concat (map #(vals %) (vals forms)))]
     (str "digraph tenforty {\n"
          (apply str (map #(str "    \""
                                (get-keyword %)
@@ -30,5 +30,5 @@
 (defn -main
   [& args]
   (with-open [wrtr (writer "graph.gv")]
-    (.write wrtr (dump-graphviz)))
+    (.write wrtr (dump-graphviz tenforty.forms.ty2015/forms)))
   )
