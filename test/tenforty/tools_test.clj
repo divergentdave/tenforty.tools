@@ -6,5 +6,5 @@
 (deftest graphviz-test
   (testing "Graphviz export"
     (is (= "digraph tenforty {\n    \":a\" [label=\"a\"];\n    \":b\" [label=\"b\"];\n    \":b\" -> \":a\";\n}\n"
-           (dump-graphviz {:form {:group {:a (makeline :a (cell-value :b))
-                                          :b (->InputLine :b)}}})))))
+           (dump-graphviz {:form {:group {:a (make-formula-line :a (cell-value :b))
+                                          :b (make-input-line :b)}}})))))
