@@ -15,20 +15,17 @@
                                "\"];\n")
                          lines))
          (apply str (map
-                      (fn [line] (apply str (map
-                                             (fn [dep] (str "    \""
-                                                            dep
-                                                            "\" -> \""
-                                                            (get-keyword line)
-                                                            "\";\n"))
-                                             (get-deps line))))
-                      lines))
-         "}\n"
-         )
-    ))
+                     (fn [line] (apply str (map
+                                            (fn [dep] (str "    \""
+                                                           dep
+                                                           "\" -> \""
+                                                           (get-keyword line)
+                                                           "\";\n"))
+                                            (get-deps line))))
+                     lines))
+         "}\n")))
 
 (defn -main
   [& args]
   (with-open [wrtr (writer "graph.gv")]
-    (.write wrtr (dump-graphviz tenforty.forms.ty2015/forms)))
-  )
+    (.write wrtr (dump-graphviz tenforty.forms.ty2015/forms))))
