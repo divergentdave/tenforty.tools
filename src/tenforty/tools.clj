@@ -6,7 +6,7 @@
 
 (defn dump-graphviz
   [forms]
-  (let [lines (apply concat (map vals (apply concat (map vals (vals forms)))))]
+  (let [lines (apply concat (map vals (vals forms)))]
     (str "digraph tenforty {\n"
          (apply str (map #(str "    \""
                                (get-keyword %)
