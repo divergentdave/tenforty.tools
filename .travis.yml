@@ -1,2 +1,5 @@
 language: clojure
 before_install: (mkdir checkouts && cd checkouts && git clone https://github.com/divergentdave/tenforty.git && cd tenforty && lein install)
+script:
+  - lein with-profile +dev cljfmt check
+  - lein test
