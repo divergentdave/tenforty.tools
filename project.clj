@@ -7,6 +7,5 @@
                  [tenforty "0.1.0-SNAPSHOT"]]
   :main ^:skip-aot tenforty.tools
   :target-path "target/%s"
-  :profiles {:dev {:dependencies [[cljfmt "0.5.1"]]
-                   :plugins [[lein-cljfmt "0.5.6"]]}
+  :profiles {:dev {:plugins [[lein-cljfmt "0.5.6"]]}
              :uberjar {:aot :all}})
