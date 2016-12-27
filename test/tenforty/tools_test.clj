@@ -1,7 +1,8 @@
 (ns tenforty.tools-test
   (:require [clojure.test :refer :all]
             [tenforty.tools :refer :all]
-            [tenforty.core :refer :all]))
+            [tenforty.core :refer :all]
+            [tenforty.forms.ty2015 :refer [forms]]))
 
 (deftest graphviz-test
   (testing "Graphviz export"
@@ -10,4 +11,5 @@
             (->FormSubgraph
              {:a (make-formula-line :a (cell-value :b))
               :b (make-input-line :b)}
-             {}))))))
+             {}))))
+    (is (string? (dump-graphviz forms)))))
