@@ -10,6 +10,6 @@
            (dump-graphviz
             (->FormSubgraph
              {:a (make-formula-line :a (cell-value :b))
-              :b (make-input-line :b)}
+              :b (make-number-input-line :b)}
              {}))))
     (is (string? (dump-graphviz forms)))))
