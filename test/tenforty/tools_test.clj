@@ -2,7 +2,7 @@
   (:require [clojure.test :refer :all]
             [tenforty.tools :refer :all]
             [tenforty.core :refer :all]
-            [tenforty.forms.ty2015 :refer [forms]]))
+            [tenforty.forms.ty2016 :refer [forms]]))
 
 (deftest graphviz-test
   (testing "Graphviz export"

@@ -1,7 +1,7 @@
 (ns tenforty.tools
   (use clojure.java.io)
   (use tenforty.core)
-  (require tenforty.forms.ty2015)
+  (require tenforty.forms.ty2016)
   (:gen-class))
 
 (defn- graphviz-nodes-group
@@ -41,4 +41,4 @@
 (defn -main
   [& args]
   (with-open [wrtr (writer "graph.gv")]
-    (.write wrtr (dump-graphviz tenforty.forms.ty2015/forms))))
+    (.write wrtr (dump-graphviz tenforty.forms.ty2016/forms))))
