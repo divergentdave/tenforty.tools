@@ -50,7 +50,7 @@
       (.write wrtr (dump-graphviz tenforty.forms.ty2016/forms)))
     "evaluate"
     (if (< (count args) 3)
-      (println "Usage: lein run evaluate <file.edn> <:form/line> [<:form/line...>]")
+      (println "Usage: lein run evaluate <file.edn> <:form/line> [<:form/line> ...]")
       (with-open [input (java.io.PushbackReader. (reader (second args)))]
         (let [object (clojure.edn/read input)
               situation (->EdnTaxSituation object)
