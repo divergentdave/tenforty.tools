@@ -1,5 +1,8 @@
 {:values {:tenforty.forms.ty2016.f1040/senior true
           :tenforty.forms.ty2016.f1040/spouse_senior true
           :tenforty.forms.ty2016.f1040/blind true
-          :tenforty.forms.ty2016.f1040/spouse_blind true}
+          :tenforty.forms.ty2016.f1040/spouse_blind true
+          :tenforty.forms.ty2016.f1040/exemption_self true
+          :tenforty.forms.ty2016.f1040/exemption_spouse true
+          :tenforty.forms.ty2016.f1040/dependents 2}
  :groups {}}
