@@ -1,5 +1,6 @@
 (ns tenforty.tools-test
   (:require [clojure.test :refer :all]
+            [clojure.string :as str]
             [tenforty.tools :refer :all]
             [tenforty.core :refer :all]
             [tenforty.forms.ty2016 :refer [forms]]))
@@ -38,3 +39,16 @@
              {nil #{:g1}
               :g1 #{:g2}
               :g2 #{}}))))))
+
+(deftest evaluate-test
+  (testing "Not enough arguments"
+    (is (str/includes?
+         (with-out-str (-main "evaluate"))
+         "Usage: lein run evaluate "))
+    (is (str/includes?
+         (with-out-str (-main "evaluate" "foo.edn"))
+         "Usage: lein run evaluate ")))
+  (testing "Missing colon"
+    (is (str/includes?
+         (with-out-str (-main "evaluate" "foo.edn" "tenforty/i_forgot_a_colon"))
+         "Error: "))))

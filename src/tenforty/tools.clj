@@ -51,16 +51,18 @@
     "evaluate"
     (if (< (count args) 3)
       (println "Usage: lein run evaluate <file.edn> <:form/line> [<:form/line> ...]")
-      (with-open [input (java.io.PushbackReader. (reader (second args)))]
-        (let [object (clojure.edn/read input)
-              situation (->EdnTaxSituation object)
-              context (make-context tenforty.forms.ty2016/forms situation)]
-          (dorun (map
-                  #(let [kw (parse-keyword %)]
-                     (if (get (:lines (:form-subgraph context)) kw)
-                       (println (str % " = " (calculate context kw)))
-                       (println (str "No such line: " %))))
-                  (nthrest args 2))))))
+      (if (every? #(= (first %) \:) (nthrest args 2))
+        (with-open [input (java.io.PushbackReader. (reader (second args)))]
+          (let [object (clojure.edn/read input)
+                situation (->EdnTaxSituation object)
+                context (make-context tenforty.forms.ty2016/forms situation)]
+            (dorun (map
+                    #(let [kw (parse-keyword %)]
+                       (if (get (:lines (:form-subgraph context)) kw)
+                         (println (str % " = " (calculate context kw)))
+                         (println (str "No such line: " %))))
+                    (nthrest args 2)))))
+        (println "Error: Line keys must begin with a colon")))
     (do (println "Usage: lein run <command>.")
         (println)
         (println "Supported commands:")
