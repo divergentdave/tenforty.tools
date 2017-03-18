@@ -51,4 +51,10 @@
   (testing "Missing colon"
     (is (str/includes?
          (with-out-str (-main "evaluate" "foo.edn" "tenforty/i_forgot_a_colon"))
-         "Error: "))))
+         "Error: ")))
+  (testing "Functional test"
+    (is (str/includes?
+         (with-out-str
+           (-main "evaluate" "test/tenforty/fixture.edn"
+                  ":tenforty.forms.ty2016.f1040/senior_blind_total"))
+         "senior_blind_total = 4"))))
