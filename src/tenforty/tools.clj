@@ -102,4 +102,5 @@
         (println)
         (println "Supported commands:")
         (println "  graph")
-        (println "  evaluate"))))
+        (println "  evaluate")
+        (println "  sensitivity"))))
