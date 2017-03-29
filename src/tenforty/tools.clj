@@ -1,9 +1,9 @@
 (ns tenforty.tools
-  (use clojure.java.io)
-  (require clojure.edn)
-  (use tenforty.core)
+  (:require [clojure.java.io :refer [reader writer]])
+  (:require clojure.edn)
+  (:require [tenforty.core :refer :all])
   (:import [tenforty.core NumberInputLine])
-  (require [tenforty.forms.ty2016 :refer [forms]])
+  (:require [tenforty.forms.ty2016 :refer [forms]])
   (:gen-class))
 
 (defn- graphviz-nodes-group
